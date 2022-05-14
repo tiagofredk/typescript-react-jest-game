@@ -1,21 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { VscChromeClose } from 'react-icons/vsc';
+import { Link } from 'react-router-dom';
+import {Context} from '../../context/ContextProvider';
 
 export default function Home() {
-
-    type IState = {
-        playerName: string,
-        score: number,
-    }
+    const { players, setPlayers } = React.useContext(Context);
+    // const [players, setPlayers] = React.useContext(Context);
     
-    const [players, setPlayers] = React.useState<IState[]>([]);
     const [playerName, setPlayerName] = React.useState('');
 
-    React.useEffect(() => {
-        console.log('players', playerName);
-    }, [players]);
-    
     class Player {
         playerName: string
         score: number
@@ -82,6 +76,9 @@ export default function Home() {
                 >
                     Add Player
                 </Button>
+                
+                <Link to='/game'>Game</Link>
+                
             </form>
         </div>
     )
