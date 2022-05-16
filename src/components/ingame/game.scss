@@ -1,507 +1,551 @@
-    .board-container {
-        background-color: aqua;
+.board-container {
+    background-color: aqua;
+    width: 100vw;
+    height: 100vh;
+    .btn {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+    }
+    .board {
         width: 100vw;
         height: 100vh;
-        .board {
-            width: 100vw;
-            height: 100vh;
-            background-color: bisque;
-            div {
-                border-radius: 50%;
-                border: 1px solid black;
-                width: 70px;
-                height: 70px;
-                background-color: #fff;
-                // display: inline-block;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                p {
-                    font-size: 1.5em;
-                    font-weight: bold;
-                    color: #000;
-                    margin-top: 25%;
-                }
-            }
-            .place1 {
-                position: fixed;
-                top: 80%;
-                left: 10%;
-            }
-            .place2 {
-                position: fixed;
-                top: 82%;
-                left: 14%;
-            }
-            .place3 {
-                position: fixed;
-                top: 84%;
-                left: 18%;
-            }
-            .place4 {
-                position: fixed;
-                top: 85%;
-                left: 22%;
-            }
-            .place5 {
-                position: fixed;
-                top: 84%;
-                left: 26%;
-            }
-            .place6 {
-                position: fixed;
-                top: 83%;
-                left: 30%;
-            }
-            .place7 {
-                position: fixed;
-                top: 85%;
-                left: 34%;
-            }
-            .place8 {
-                position: fixed;
-                top: 86%;
-                left: 38%;
-            }
-            .place9 {
-                position: fixed;
-                top: 83%;
-                left: 42%;
-            }
-            .place10 {
-                position: fixed;
-                top: 85%;
-                left: 46%;
-            }
-            .place11 {
-                position: fixed;
-                top: 82%;
-                left: 50%;
-            }
-            .place12 {
-                position: fixed;
-                top: 83%;
-                left: 54%;
-            }
-            .place13 {
-                position: fixed;
-                top: 85%;
-                left: 58%;
-            }
-            .place14 {
-                position: fixed;
-                top: 82%;
-                left: 62%;
-            }
-            .place15 {
-                position: fixed;
-                top: 83%;
-                left: 66%;
-            }
-            .place16 {
-                position: fixed;
-                top: 85%;
-                left: 70%;
-            }
-            .place17 {
-                position: fixed;
-                top: 82%;
-                left: 74%;
-            }
-            .place18 {
-                position: fixed;
-                top: 83%;
-                left: 78%;
-            }
-            .place19 {
-                position: fixed;
-                top: 85%;
-                left: 82%;
-            }
-            .place20 {
-                position: fixed;
-                top: 82%;
-                left: 86%;
-            }
-            .place21 {
-                position: fixed;
-                top: 73%;
-                left: 87%;
-            }
-            .place22 {
-                position: fixed;
-                top: 64%;
-                left: 87%;
-            }
-            .place23 {
-                position: fixed;
-                top: 55%;
-                left: 85%;
-            }
-            .place24 {
-                position: fixed;
-                top: 48%;
-                left: 82%;
-            }
-            .place25 {
-                position: fixed;
-                top: 45%;
-                left: 78%;
-            }
-            .place26 {
-                position: fixed;
-                top: 46%;
-                left: 74%;
-            }
-            .place27 {
-                position: fixed;
-                top: 48%;
-                left: 70%;
-            }
-            .place28 {
-                position: fixed;
-                top: 51%;
-                left: 66%;
-            }
-            .place29 {
-                position: fixed;
-                top: 53%;
-                left: 62%;
-            }
-            .place30 {
-                position: fixed;
-                top: 55%;
-                left: 58%;
-            }
-            .place31 {
-                position: fixed;
-                top: 57%;
-                left: 54%;
-            }
-            .place32 {
-                position: fixed;
-                top: 59%;
-                left: 50%;
-            }
-            .place33 {
-                position: fixed;
-                top: 61%;
-                left: 46%;
-            }
-            .place34 {
-                position: fixed;
-                top: 61%;
-                left: 42%;
-            }
-            .place35 {
-                position: fixed;
-                top: 60%;
-                left: 38%;
-            }
-            .place36 {
-                position: fixed;
-                top: 61%;
-                left: 34%;
-            }
-            .place37 {
-                position: fixed;
-                top: 59%;
-                left: 30%;
-            }
-            .place38 {
-                position: fixed;
-                top: 59%;
-                left: 26%;
-            }
-            .place39 {
-                position: fixed;
-                top: 59%;
-                left: 22%;
-            }
-            .place40 {
-                position: fixed;
-                top: 58%;
-                left: 18%;
-            }
-            .place41 {
-                position: fixed;
-                top: 59%;
-                left: 14%;
-            }
-            .place42 {
-                position: fixed;
-                top: 56%;
-                left: 10%;
-            }
-            .place43 {
-                position: fixed;
-                top: 47%;
-                left: 9%;
-            }
-            .place44 {
-                position: fixed;
-                top: 38%;
-                left: 9%;
-            }
-            .place45 {
-                position: fixed;
-                top: 32%;
-                left: 12%;
-            }
-            .place46 {
-                position: fixed;
-                top: 30%;
-                left: 16%;
-            }
-            .place47 {
-                position: fixed;
-                top: 31%;
-                left: 20%;
-            }
-            .place48 {
-                position: fixed;
-                top: 33%;
-                left: 24%;
-            }
-            .place49 {
-                position: fixed;
-                top: 35%;
-                left: 28%;
-            }
-            .place50 {
-                position: fixed;
-                top: 37%;
-                left: 32%;
-            }
-            .place51 {
-                position: fixed;
-                top: 39%;
-                left: 36%;
-            }
-            .place52 {
-                position: fixed;
-                top: 39%;
-                left: 40%;
-            }
-            .place53 {
-                position: fixed;
-                top: 38%;
-                left: 44%;
-            }
-            .place54 {
-                position: fixed;
-                top: 37%;
-                left: 48%;
-            }
-            .place55 {
-                position: fixed;
-                top: 35%;
-                left: 52%;
-            }
-            .place56 {
-                position: fixed;
-                top: 33%;
-                left: 56%;
-            }
-            .place57 {
-                position: fixed;
-                top: 31%;
-                left: 60%;
-            }
-            .place58 {
-                position: fixed;
-                top: 31%;
-                left: 64%;
-            }
-            .place59 {
-                position: fixed;
-                top: 33%;
-                left: 68%;
-            }
-            .place60 {
-                position: fixed;
-                top: 32%;
-                left: 72%;
-            }
-            .place61 {
-                position: fixed;
-                top: 32%;
-                left: 76%;
-            }
-            .place62 {
-                position: fixed;
-                top: 34%;
-                left: 80%;
-            }
-            .place63 {
-                position: fixed;
-                top: 35%;
-                left: 84%;
-            }
-            .place64 {
-                position: fixed;
-                top: 37%;
-                left: 88%;
-            }
-            .place65 {
-                position: fixed;
-                top: 36%;
-                left: 92%;
-            }
-            .place66 {
-                position: fixed;
-                top: 29%;
-                left: 94%;
-            }
-            .place67 {
-                position: fixed;
-                top: 21%;
-                left: 93%;
-            }
-            .place68 {
-                position: fixed;
-                top: 16%;
-                left: 90%;
-            }
-            .place69 {
-                position: fixed;
-                top: 17%;
-                left: 86%;
-            }
-            .place70 {
-                position: fixed;
-                top: 19%;
-                left: 82%;
-            }
-            .place71 {
-                position: fixed;
-                top: 21%;
-                left: 78%;
-            }
-            .place72 {
-                position: fixed;
-                top: 17%;
-                left: 74%;
-            }
-            .place73 {
-                position: fixed;
-                top: 16%;
-                left: 70%;
-            }
-            .place74 {
-                position: fixed;
-                top: 17%;
-                left: 66%;
-            }
-            .place75 {
-                position: fixed;
-                top: 16%;
-                left: 62%;
-            }
-            .place76 {
-                position: fixed;
-                top: 16%;
-                left: 58%;
-            }
-            .place77 {
-                position: fixed;
-                top: 16%;
-                left: 54%;
-            }
-            .place78 {
-                position: fixed;
-                top: 15%;
-                left: 50%;
-            }
-            .place79 {
-                position: fixed;
-                top: 16%;
-                left: 46%;
-            }
-            .place80 {
-                position: fixed;
-                top: 16%;
-                left: 42%;
-            }
-            .place81 {
-                position: fixed;
-                top: 16%;
-                left: 38%;
-            }
-            .place82 {
-                position: fixed;
-                top: 15%;
-                left: 34%;
-            }
-            .place83 {
-                position: fixed;
-                top: 14%;
-                left: 30%;
-            }
-            .place84 {
-                position: fixed;
-                top: 12%;
-                left: 26%;
-            }
-            .place85 {
-                position: fixed;
-                top: 10%;
-                left: 22%;
-            }
-            .place86 {
-                position: fixed;
-                top: 7%;
-                left: 18%;
-            }
-            .place87 {
-                position: fixed;
-                top: 5%;
-                left: 14%;
-            }
-            .place88 {
-                position: fixed;
-                top: 3%;
-                left: 10%;
-            }
-            .place89 {
-                position: fixed;
-                top: 4%;
-                left: 6%;
-            }
-            .place90 {
-                position: fixed;
-                top: 9%;
-                left: 3%;
-            }
-            .place91 {
-                position: fixed;
-                top: 17%;
-                left: 2%;
-            }
-            .place92 {
-                position: fixed;
-                top: 25%;
-                left: 3%;
-            }
-            .place93 {
-                position: fixed;
-                top: 31%;
-                left: 6%;
-            }
-            .place94 {
-                position: fixed;
-                top: 30%;
-                left: 10%;
-            }
-            .place95 {
-                position: fixed;
-                top: 25%;
-                left: 14%;
-            }
-            .place96 {
-                position: fixed;
-                top: 23%;
-                left: 18%;
+        background-color: bisque;
+        div {
+            border-radius: 50%;
+            border: 1px solid black;
+            width: 70px;
+            height: 70px;
+            background-color: #fff;
+            // display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p {
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #000;
+                margin-top: 25%;
             }
         }
+        // background color red place 41, 46, 50, 37, 25, 63, 77, 56, 86, 92, 45, 95
+        .place3,
+        .place12,
+        .place31,
+        .place18,
+        .place23,
+        .place41,
+        .place46,
+        .place50,
+        .place37,
+        .place25,
+        .place63,
+        .place77,
+        .place56,
+        .place86,
+        .place92,
+        .place45,
+        .place95,
+        .place65,
+        .place70 {
+            background-color: #ff0000;
+        }
+        .place1 {
+            position: fixed;
+            top: 80%;
+            left: 10%;
+        }
+        .place2 {
+            position: fixed;
+            top: 82%;
+            left: 14%;
+        }
+        .place3 {
+            position: fixed;
+            top: 84%;
+            left: 18%;
+        }
+        .place4 {
+            position: fixed;
+            top: 85%;
+            left: 22%;
+        }
+        .place5 {
+            position: fixed;
+            top: 84%;
+            left: 26%;
+        }
+        .place6 {
+            position: fixed;
+            top: 83%;
+            left: 30%;
+        }
+        .place7 {
+            position: fixed;
+            top: 85%;
+            left: 34%;
+        }
+        .place8 {
+            position: fixed;
+            top: 86%;
+            left: 38%;
+        }
+        .place9 {
+            position: fixed;
+            top: 83%;
+            left: 42%;
+        }
+        .place10 {
+            position: fixed;
+            top: 85%;
+            left: 46%;
+        }
+        .place11 {
+            position: fixed;
+            top: 82%;
+            left: 50%;
+        }
+        .place12 {
+            position: fixed;
+            top: 83%;
+            left: 54%;
+        }
+        .place13 {
+            position: fixed;
+            top: 85%;
+            left: 58%;
+        }
+        .place14 {
+            position: fixed;
+            top: 82%;
+            left: 62%;
+        }
+        .place15 {
+            position: fixed;
+            top: 83%;
+            left: 66%;
+        }
+        .place16 {
+            position: fixed;
+            top: 85%;
+            left: 70%;
+        }
+        .place17 {
+            position: fixed;
+            top: 82%;
+            left: 74%;
+        }
+        .place18 {
+            position: fixed;
+            top: 83%;
+            left: 78%;
+        }
+        .place19 {
+            position: fixed;
+            top: 85%;
+            left: 82%;
+        }
+        .place20 {
+            position: fixed;
+            top: 82%;
+            left: 86%;
+        }
+        .place21 {
+            position: fixed;
+            top: 75%;
+            left: 87%;
+        }
+        .place22 {
+            position: fixed;
+            top: 67%;
+            left: 87%;
+        }
+        .place23 {
+            position: fixed;
+            top: 60%;
+            left: 85%;
+        }
+        .place24 {
+            position: fixed;
+            top: 55%;
+            left: 82%;
+        }
+        .place25 {
+            position: fixed;
+            top: 54%;
+            left: 78%;
+        }
+        .place26 {
+            position: fixed;
+            top: 56%;
+            left: 74%;
+        }
+        .place27 {
+            position: fixed;
+            top: 58%;
+            left: 70%;
+        }
+        .place28 {
+            position: fixed;
+            top: 56%;
+            left: 66%;
+        }
+        .place29 {
+            position: fixed;
+            top: 53%;
+            left: 62%;
+        }
+        .place30 {
+            position: fixed;
+            top: 55%;
+            left: 58%;
+        }
+        .place31 {
+            position: fixed;
+            top: 57%;
+            left: 54%;
+        }
+        .place32 {
+            position: fixed;
+            top: 59%;
+            left: 50%;
+        }
+        .place33 {
+            position: fixed;
+            top: 61%;
+            left: 46%;
+        }
+        .place34 {
+            position: fixed;
+            top: 65%;
+            left: 42%;
+        }
+        .place35 {
+            position: fixed;
+            top: 70%;
+            left: 38%;
+        }
+        .place36 {
+            position: fixed;
+            top: 71%;
+            left: 34%;
+        }
+        .place37 {
+            position: fixed;
+            top: 69%;
+            left: 30%;
+        }
+        .place38 {
+            position: fixed;
+            top: 69%;
+            left: 26%;
+        }
+        .place39 {
+            position: fixed;
+            top: 69%;
+            left: 22%;
+        }
+        .place40 {
+            position: fixed;
+            top: 68%;
+            left: 18%;
+        }
+        .place41 {
+            position: fixed;
+            top: 69%;
+            left: 14%;
+        }
+        .place42 {
+            position: fixed;
+            top: 66%;
+            left: 10%;
+        }
+        .place43 {
+            position: fixed;
+            top: 59%;
+            left: 8%;
+        }
+        .place44 {
+            position: fixed;
+            top: 52%;
+            left: 9%;
+        }
+        .place45 {
+            position: fixed;
+            top: 49%;
+            left: 12%;
+        }
+        .place46 {
+            position: fixed;
+            top: 48%;
+            left: 16%;
+        }
+        .place47 {
+            position: fixed;
+            top: 46%;
+            left: 20%;
+        }
+        .place48 {
+            position: fixed;
+            top: 43%;
+            left: 24%;
+        }
+        .place49 {
+            position: fixed;
+            top: 45%;
+            left: 28%;
+        }
+        .place50 {
+            position: fixed;
+            top: 47%;
+            left: 32%;
+        }
+        .place51 {
+            position: fixed;
+            top: 46%;
+            left: 36%;
+        }
+        .place52 {
+            position: fixed;
+            top: 44%;
+            left: 40%;
+        }
+        .place53 {
+            position: fixed;
+            top: 42%;
+            left: 44%;
+        }
+        .place54 {
+            position: fixed;
+            top: 38%;
+            left: 48%;
+        }
+        .place55 {
+            position: fixed;
+            top: 35%;
+            left: 52%;
+        }
+        .place56 {
+            position: fixed;
+            top: 33%;
+            left: 56%;
+        }
+        .place57 {
+            position: fixed;
+            top: 31%;
+            left: 60%;
+        }
+        .place58 {
+            position: fixed;
+            top: 31%;
+            left: 64%;
+        }
+        .place59 {
+            position: fixed;
+            top: 33%;
+            left: 68%;
+        }
+        .place60 {
+            position: fixed;
+            top: 32%;
+            left: 72%;
+        }
+        .place61 {
+            position: fixed;
+            top: 32%;
+            left: 76%;
+        }
+        .place62 {
+            position: fixed;
+            top: 34%;
+            left: 80%;
+        }
+        .place63 {
+            position: fixed;
+            top: 35%;
+            left: 84%;
+        }
+        .place64 {
+            position: fixed;
+            top: 37%;
+            left: 88%;
+        }
+        .place65 {
+            position: fixed;
+            top: 36%;
+            left: 92%;
+        }
+        .place66 {
+            position: fixed;
+            top: 29%;
+            left: 94%;
+        }
+        .place67 {
+            position: fixed;
+            top: 21%;
+            left: 93%;
+        }
+        .place68 {
+            position: fixed;
+            top: 16%;
+            left: 90%;
+        }
+        .place69 {
+            position: fixed;
+            top: 17%;
+            left: 86%;
+        }
+        .place70 {
+            position: fixed;
+            top: 19%;
+            left: 82%;
+        }
+        .place71 {
+            position: fixed;
+            top: 18%;
+            left: 78%;
+        }
+        .place72 {
+            position: fixed;
+            top: 17%;
+            left: 74%;
+        }
+        .place73 {
+            position: fixed;
+            top: 16%;
+            left: 70%;
+        }
+        .place74 {
+            position: fixed;
+            top: 17%;
+            left: 66%;
+        }
+        .place75 {
+            position: fixed;
+            top: 16%;
+            left: 62%;
+        }
+        .place76 {
+            position: fixed;
+            top: 16%;
+            left: 58%;
+        }
+        .place77 {
+            position: fixed;
+            top: 16%;
+            left: 54%;
+        }
+        .place78 {
+            position: fixed;
+            top: 15%;
+            left: 50%;
+        }
+        .place79 {
+            position: fixed;
+            top: 16%;
+            left: 46%;
+        }
+        .place80 {
+            position: fixed;
+            top: 16%;
+            left: 42%;
+        }
+        .place81 {
+            position: fixed;
+            top: 16%;
+            left: 38%;
+        }
+        .place82 {
+            position: fixed;
+            top: 15%;
+            left: 34%;
+        }
+        .place83 {
+            position: fixed;
+            top: 14%;
+            left: 30%;
+        }
+        .place84 {
+            position: fixed;
+            top: 12%;
+            left: 26%;
+        }
+        .place85 {
+            position: fixed;
+            top: 10%;
+            left: 22%;
+        }
+        .place86 {
+            position: fixed;
+            top: 7%;
+            left: 18%;
+        }
+        .place87 {
+            position: fixed;
+            top: 5%;
+            left: 14%;
+        }
+        .place88 {
+            position: fixed;
+            top: 3%;
+            left: 10%;
+        }
+        .place89 {
+            position: fixed;
+            top: 4%;
+            left: 6%;
+        }
+        .place90 {
+            position: fixed;
+            top: 9%;
+            left: 3%;
+        }
+        .place91 {
+            position: fixed;
+            top: 17%;
+            left: 2%;
+        }
+        .place92 {
+            position: fixed;
+            top: 25%;
+            left: 3%;
+        }
+        .place93 {
+            position: fixed;
+            top: 33%;
+            left: 5%;
+        }
+        .place94 {
+            position: fixed;
+            top: 38%;
+            left: 8%;
+        }
+        .place95 {
+            position: fixed;
+            top: 37%;
+            left: 12%;
+        }
+        .place96 {
+            position: fixed;
+            top: 36%;
+            left: 16%;
+        }
+        .place97 {
+            position: fixed;
+            top: 34%;
+            left: 20%;
+        }
+        .place98 {
+            position: fixed;
+            top: 29%;
+            left: 23%;
+        }
+        .place99 {
+            position: fixed;
+            top: 25%;
+            left: 27%;
+        }
     }
+}

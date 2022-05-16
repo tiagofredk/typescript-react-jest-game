@@ -17,9 +17,7 @@ export default function Board() {
     return (
         <div className='board-container'>
             <section className='board'>
-                {
-                    runCallback()
-                }
+                { runCallback()}
             </section>
         </div>
     )
