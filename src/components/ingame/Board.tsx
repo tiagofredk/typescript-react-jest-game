@@ -4,7 +4,7 @@ export default function Board() {
 
     const runCallback = () => {
         const row = [];
-        for (var i = 0; i <= 99; i++) {
+        for (var i = 1; i <= 99; i++) {
             row.push(
                 <div key={i} className={`place${i}`}>
                     <p >{i}</p>
@@ -15,7 +15,7 @@ export default function Board() {
     }
 
     return (
-        <div className='container'>
+        <div className='board-container'>
             <section className='board'>
                 {
                     runCallback()
