@@ -1,4 +1,4 @@
 ## Ladder Game
 
-#### tehcnologie Stack
+#### Tehcnologie Stack
 * react, typescript, jest
