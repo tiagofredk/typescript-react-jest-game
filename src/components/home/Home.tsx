@@ -25,7 +25,6 @@ export default function Home() {
 
         setPlayers([...players, new Player(Name)]);
 
-        console.log(players);
         setPlayerName('');
     }
 
@@ -40,7 +39,6 @@ export default function Home() {
             <h1>Ladder Game</h1>
             <h1>Players</h1>
             {players.map((player, index) => {
-                console.log(`index: ${index}`);
                 return (
                     <div className='container' key={index}>
                         <div className="card text-white bg-info mb-3" >
@@ -70,14 +68,13 @@ export default function Home() {
                 </FloatingLabel>
                 <Button
                     onClick={(e) => createPlayers(e, playerName)}
-                    // onClick={() => console.log(playerName)}
                     variant="primary"
                     type="submit"
                 >
                     Add Player
                 </Button>
                 
-                <Link to='/game'>Game</Link>
+                <Link to='/Sort'>Game</Link>
                 
             </form>
         </div>
