@@ -1,6 +1,6 @@
 import React from 'react'
 import { Context } from '../../context/ContextProvider';
-import { Button, FloatingLabel, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export default function SortPlayers() {
@@ -15,27 +15,46 @@ export default function SortPlayers() {
             array[i] = array[j];
             array[j] = temp;
             setPlayers(array);
-        }   
+            // to force comoponent to re-render
+            setPlayers([ ...players ]);
+        }
         console.log(players);
+        playermap();
     }
 
-    const newPlayers = players.map((player, index) => {
+    // const newPlayers = players.map((player, index) => {
+    //     return (
+    //         <div key={index}>
+    //             <div className="card text-white bg-info mb-3" >
+    //                 <div className="card-header">
+    //                     <p>{player.playerName}</p>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     )
+    // })
+
+    function playermap() {
         return (
-            <div key={index}>
-                <div className="card text-white bg-info mb-3" >
-                    <div className="card-header">
-                        <p>{player.playerName}</p>
+            players.map((player, index) => {
+                return (
+                    <div key={index}>
+                        <div className="card text-white bg-info mb-3" >
+                            <div className="card-header">
+                                <p>{player.playerName}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                )
+            })
         )
-    })
+    }
 
     return (
         <div>
             <Link to="/">Home</Link>
             <div>
-                {newPlayers}
+                {playermap()}
             </div>
             <Button
                 onClick={() => shuffleArray(players)}
@@ -44,6 +63,7 @@ export default function SortPlayers() {
             >
                 Sort
             </Button>
+            <Link to="/Game">Game</Link>
         </div>
     )
 }

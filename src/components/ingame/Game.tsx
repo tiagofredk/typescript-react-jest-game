@@ -7,13 +7,10 @@ export default function Game() {
 
   const { players, setPlayers } = React.useContext(Context)
 
-  
-
   return (
     <div>
       <Board />
       
-
     </div>
   )
 }
