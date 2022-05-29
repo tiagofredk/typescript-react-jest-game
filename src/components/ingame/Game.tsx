@@ -10,6 +10,7 @@ export default function Game() {
   const { players, setPlayers } = React.useContext(Context)
   let playersCopy = [...players]
   let [Player, setPlayer] = React.useState(0)
+  let [OnGame, setOnGame] = React.useState(false)
 
   // function getPosition(place: number) {
   //   const element = document.getElementsByClassName(`place${place}`)[0];
@@ -30,62 +31,71 @@ export default function Game() {
 
   function start() {
     console.log(playersCopy);
+    setOnGame(true);
     gameon(playersCopy);
   }
-  
+
   function rolldices(item: { playerName: any; score: number }) {
     console.log("Dices Rolled");
+    console.log("Received Item: ", item);
     let dice = Math.random() * (13 - 2) + 2;
     const throwdice = Number(dice.toFixed(0));
-    
+
     setPlayer(Player + 1);
+
     console.log("Rolldices Player increment: " + Player);
-    
+
     item.score = item.score + throwdice
-    // Swal.fire(`${throwdice}`);
-    Swal.fire({
-      title: `You scored ${throwdice} ${item.playerName}`,
-      text: "Next Player",
-      icon: "info",
-      confirmButtonColor: "#3085d6",
-      confirmButtonText: "Next Player",
-    }).then((result: any) => {
-      // execute again the game
-      // gameon(playersCopy);
-      
-    })
-    
+    Swal.fire(`You scored ${throwdice} ${item.playerName}`);
+
     return throwdice
   }
 
   function gameon(competitors: any) {
     console.log(competitors);
-    // let winer = 0;
-    // let player = 0;
+    console.log("Player: " + Player);
 
-    competitors.map((item: { playerName: any; score: number }, index: number) => {
-
-      console.log(item);
-      console.log("index: " + index);
-      console.log("Player: " + Player);
-
-      if (Player === index) {
-        Swal.fire({
-          title: `Ready to play the dice ${item.playerName} ?`,
-          text: "Click the button to roll the dice",
-          icon: "info",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "Roll the dice!"
-        }).then((result: any) => {
-          rolldices(item);
-          setPlayer(Player + 1);
-          if (competitors.length - 1 === Player) {
-            console.log("Ops competitors.lenght === Player");
-            setPlayer(0);
-          }
-        })
+    if (Player < competitors.length) {
+      setPlayer(Player + 1);
+      
+      Swal.fire({
+              title: `Ready to play the dice ${competitors[Player].playerName} ?`,
+              text: "Click the button to roll the dice",
+              icon: "info",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Roll the dice!"
+            }).then((result: any) => {
+              rolldices(competitors[Player]);
+            });
+    
+      if (Player === competitors.length - 1) {
+        setPlayer(0);
+        console.log("setPlayer to 0");
       }
-    })
+    }
+
+    console.log("Player: " + Player);
+
+    // competitors.map((item: { playerName: any; score: number }, index: number) => {
+
+    //   if (Player === index) {
+    //     Swal.fire({
+    //       title: `Ready to play the dice ${item.playerName} ?`,
+    //       text: "Click the button to roll the dice",
+    //       icon: "info",
+    //       confirmButtonColor: "#3085d6",
+    //       confirmButtonText: "Roll the dice!"
+    //     }).then((result: any) => {
+    //       rolldices(item);
+    //       setPlayer(Player + 1);
+
+    //       if (competitors.length - 1 === Player) {
+    //         console.log("Ops competitors.lenght === Player");
+    //         setPlayer(0);
+    //       }
+    //     })
+    //   }
+    // })
 
     // while (winer < 1) {
     //   console.log("while");
@@ -216,7 +226,8 @@ export default function Game() {
   return (
     <div>
       <Board />
-      <button onClick={() => start()}>Position</button>
+      {OnGame ? <button onClick={() => start()}>Next Player</button> : <button onClick={() => start()}>Start</button>}
+
 
       <p>Score</p>
       <>
