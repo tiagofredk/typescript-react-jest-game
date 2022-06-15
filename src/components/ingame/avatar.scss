@@ -1,0 +1,10 @@
+// create triangle shape with circle on top
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(160, 68, 68);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
