@@ -1,53 +1,61 @@
 import React from 'react'
 import { Context } from '../../context/ContextProvider'
 import Board from './Board'
+import CSS from "csstype";
+import Avatar from './Avatar';
 
 const Swal = require('sweetalert2')
 // import { Button, FloatingLabel, Form } from 'react-bootstrap';
 
 export default function Game() {
 
-  const { players, setPlayers } = React.useContext(Context)
-  let playersCopy = [...players]
-  let [Player, setPlayer] = React.useState(0)
-  let [OnGame, setOnGame] = React.useState(false)
-  let [X, setX] = React.useState(0)
-  let [Y, setY] = React.useState(0)
 
-  function getPosition(place: number) {
+  const { players, /* setPlayers */ } = React.useContext(Context);
+  let playersCopy = [...players];
+  let [Player, setPlayer] = React.useState(0); // Current player compared with array position of PlayersCopy.
+  let [OnGame, setOnGame] = React.useState(false);
+  // let [X, setX] = React.useState(0);
+  // let [Y, setY] = React.useState(0);
+
+  React.useEffect(() => {
+    console.log("useEffect");
+    console.log("Player");
+    console.log(Player);
+  }, [Player])
+
+  /* function getPosition(place: number) {
     const element = document.getElementsByClassName(`place${place}`)[0];
     const rect = element.getBoundingClientRect();
-
-    console.log("element" + element);
+    console.log("Element");
+    console.log(element);
     console.log("y : " + rect.y);
-    setY(rect.y)
+    setY(rect.y);
     console.log("x : " + rect.x);
-    setX(rect.x)
+    setX(rect.x);
     // return { x, y };
-  }
+  } */
 
   function start() {
     console.log(playersCopy);
-    setOnGame(true);
-    gameon();
+    setOnGame(true); // change top left button start to Next Player
+    gameon(); // start the game
   }
 
-  function rolldices(item: { playerName: any; score: number }) {
+  function rolldices(item: { playerName: string; score: number; positionX: number; positionY: number; }) {
     console.log("Dices Rolled");
     console.log("Received Item: ", item);
     let dice = Math.random() * (13 - 2) + 2;
     const throwdice = Number(dice.toFixed(0));
-
-    setPlayer(Player + 1);
-
+    setPlayer(Player + 1); // increase number for current player
+    // At the end of the round, Player variable should be reseted to start a new round.
     if (Player === playersCopy.length - 1) {
       setPlayer(0);
       console.log("setPlayer to 0 : " + Player);
     }
-
+    // Update player score
     console.log("Rolldices Player increment: " + Player);
-
     item.score = item.score + throwdice
+    // Path shortcut if the player stop in one of the shortcut numbers
     switch (item.score) {
       case 6:
         item.score = 27
@@ -154,27 +162,27 @@ export default function Game() {
         Swal.fire(`You scored ${throwdice} ${item.playerName}`);
         break;
     }
-    getPosition(item.score);
-
+    // getPosition(item.score);
+    const element = document.getElementsByClassName(`place${item.score}`)[0];
+    const rect = element.getBoundingClientRect();
+    item.positionY = rect.y;
+    item.positionX = rect.x;
+    console.log(playersCopy);
     return throwdice
   }
 
+  // gameon function 
   function gameon() {
-    console.log("Player: " + Player);
-
+    console.log("Player Gameon: " + Player);
     if (Player < playersCopy.length) {
       setPlayer(Player + 1);
-
       Swal.fire({
         title: `Ready to play the dice ${playersCopy[Player].playerName} ?`,
         text: "Click the button to roll the dice",
         icon: "info",
         confirmButtonColor: "#3085d6",
         confirmButtonText: "Roll the dice!"
-      }).then((result: any) => {
-        rolldices(playersCopy[Player]);
-      });
-
+      }).then((result: any) => rolldices(playersCopy[Player]));
     }
     console.log("Player: " + Player);
 
@@ -339,7 +347,7 @@ export default function Game() {
 
   }
 
-  let playersScore = playersCopy.forEach((item: { playerName: any; score: any }) => {
+  /* let playersScore = playersCopy.forEach((item: { playerName: any; score: any }) => {
     console.log(`${item.playerName}, score: ${item.score}`)
     return (
       <div>
@@ -347,29 +355,44 @@ export default function Game() {
         <p>{item.score}</p>
       </div>
     )
-  })
+  }) */
+
+  const myStyle: CSS.Properties = {
+    position: "absolute",
+    top: "0",
+    left: "0",
+  }
 
   return (
     <div>
-      <Board />
-      {OnGame ? <button style={{
-        position: "absolute",
-        top: "0",
-        left: "0",
-        }} onClick={() => start()}>Next Player</button> : <button style={{
-          position: "absolute",
-          top: "0",
-          left: "0",
-          }} onClick={() => start()}>Start</button>}
 
-      <div style={{
-        position: "absolute",
-        top: `${Y}px`,
-        left: `${X}px`,
-        width: "30px",
-        height: "30px",
-      }}
-        className='avatar'>avatar</div>
+      <Board />
+
+      {OnGame ? <button style={myStyle} onClick={() => start()}> Next Player </button> //Top left button Start and Next Player
+        :
+        <button style={myStyle} onClick={() => start()}>Start</button>}
+
+      {/* <div
+        style={{
+          position: "absolute",
+          top: `${Y}px`,
+          left: `${X}px`,
+          width: "30px",
+          height: "30px",
+        }}
+        className='avatar'>
+        avatar
+      </div> */}
+
+      {playersCopy.map(item => {
+        return (
+          <Avatar {...{
+            positionX: item.positionX,
+            positionY: item.positionY,
+            name: item.playerName
+          }} />
+        )
+      })}
 
     </div>
   )

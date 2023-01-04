@@ -2,29 +2,35 @@ import React from 'react'
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { VscChromeClose } from 'react-icons/vsc';
 import { Link } from 'react-router-dom';
-import {Context} from '../../context/ContextProvider';
+import { Context } from '../../context/ContextProvider';
 
 export default function Home() {
     const { players, setPlayers } = React.useContext(Context);
     // const [players, setPlayers] = React.useContext(Context);
-    
+
     const [playerName, setPlayerName] = React.useState('');
+
+    React.useEffect(() => {
+        console.log("players objects Created")
+        console.log(players)
+    }, [players])
 
     class Player {
         playerName: string
         score: number
-        
+        positionX: number
+        positionY: number
         constructor(Name: string) {
             this.playerName = Name;
             this.score = 0;
+            this.positionX = 0;
+            this.positionY = 0;
         }
     }
 
     function createPlayers(event: any, Name: string): void {
         event.preventDefault();
-
         setPlayers([...players, new Player(Name)]);
-
         setPlayerName('');
     }
 
@@ -73,9 +79,7 @@ export default function Home() {
                 >
                     Add Player
                 </Button>
-                
                 <Link to='/Sort'>Game</Link>
-                
             </form>
         </div>
     )

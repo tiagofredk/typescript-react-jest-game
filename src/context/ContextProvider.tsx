@@ -1,8 +1,8 @@
 import React from 'react'
 
 type IContext = {
-    players: {playerName: string, score: number}[],
-    setPlayers: (players: {playerName: string, score: number}[]) => void,
+    players: {playerName: string, score: number; positionX: number; positionY: number;}[],
+    setPlayers: (players: { playerName: string; score: number; positionX: number; positionY: number; }[]) => void,
 }
 
 export const Context = React.createContext({} as IContext);
@@ -13,7 +13,7 @@ type IChildren = {
 
 export default function ContextProvider({ children }: IChildren) {
 
-    const [players, setPlayers] = React.useState<{playerName: string, score: number}[]>([]);
+    const [players, setPlayers] = React.useState<{ playerName: string; score: number; positionX: number; positionY: number; }[]>([]);
     // const [players, setPlayers] = React.useState<IState[]>([]);
 
     return (

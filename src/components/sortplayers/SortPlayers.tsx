@@ -7,8 +7,8 @@ export default function SortPlayers() {
 
     const { players, setPlayers } = React.useContext(Context);
 
-    // function to Sort players first to play with The Fisher-Yates algorithm
-    const shuffleArray = (array: { playerName: string; score: number; }[]) => {
+    // function to Sort players. First to play. Fisher-Yates algorithm
+    const shuffleArray = (array: { playerName: string; score: number; positionX: number; positionY: number; }[]) => {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             const temp = array[i];
@@ -16,7 +16,7 @@ export default function SortPlayers() {
             array[j] = temp;
             setPlayers(array);
             // to force comoponent to re-render
-            setPlayers([ ...players ]);
+            setPlayers([...players]);
         }
         console.log(players);
         playermap();
@@ -63,7 +63,7 @@ export default function SortPlayers() {
             >
                 Sort
             </Button>
-            <Link to="/Game">Game</Link>
+            <Link to="/Game">To the Game</Link>
         </div>
     )
 }
